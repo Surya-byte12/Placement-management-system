@@ -27,8 +27,9 @@ public class Company {
 
     public Company() {}
 
-    public Company(String name) {
+    public Company(String name,String location) {
         this.name = name;
+        this.location = location;
     }
 
     public Long getId() {
@@ -53,6 +54,14 @@ public class Company {
 
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
 }
