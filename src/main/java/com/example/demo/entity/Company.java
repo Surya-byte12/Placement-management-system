@@ -8,8 +8,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
+
 public class Company {
 
     @Id
@@ -24,6 +27,18 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
+
+    @ManyToOne
+    @JoinColumn(name = "recruiter_id",nullable = false)
+    private User recruiter;
+
+    public User getRecruiter() {
+        return recruiter;
+    }
+
+    public void setRecruiter(User recruiter) {
+        this.recruiter = recruiter;
+    }
 
     public Company() {}
 
